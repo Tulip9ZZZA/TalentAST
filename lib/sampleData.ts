@@ -13,7 +13,7 @@ export interface DemoPreset {
 export const DEMO_PRESETS: Record<string, DemoPreset> = {
   backend: {
     id: "backend",
-    name: "Senior Go / Distributed Systems",
+    name: "Go / Distributed Systems",
     badge: "BACKEND_ENGINEER",
     jdTitle: "Senior Distributed Backend Engineer (Fintech Core)",
     jd: `Role: Senior Distributed Backend Engineer - Core Transaction Platform
@@ -98,26 +98,6 @@ SKILLS
           candidate_evidence: "Experience using RabbitMQ for async message queues and event notification dispatch.",
           gap_reasoning: "RabbitMQ is message-queue oriented; Kafka is distributed log stream processing. Concepts of consumer offset and partitions need mapping.",
           actionable_fix: "Reframe message brokering experience to highlight idempotency keys, dead-letter exchanges, and high-volume stream ingestion."
-        },
-        {
-          category: "Distributed Caching & Storage",
-          skill_name: "PostgreSQL Query Optimization & PgBouncer",
-          importance: "CRITICAL",
-          status: "MATCHED",
-          jd_requirement_context: "Strong SQL optimization in PostgreSQL, connection pooling (PgBouncer), and distributed schema migration.",
-          candidate_evidence: "Optimized relational queries and indexed hot tables to speed up analytical reports by 40%.",
-          gap_reasoning: "",
-          actionable_fix: "Mention execution plan analysis (EXPLAIN ANALYZE) and connection pooling explicitly."
-        },
-        {
-          category: "Observability & Reliability",
-          skill_name: "Prometheus Metrics & OpenTelemetry Tracing",
-          importance: "PREFERRED",
-          status: "MATCHED",
-          jd_requirement_context: "Zero-downtime canary deployments, Prometheus metrics, and OpenTelemetry distributed tracing.",
-          candidate_evidence: "Configured Grafana dashboards and Prometheus alerts for endpoint latency monitoring.",
-          gap_reasoning: "",
-          actionable_fix: "Align with OpenTelemetry trace span propagation and golden signals (latency, traffic, errors, saturation)."
         }
       ],
       tailored_bullet_patches: [
@@ -132,12 +112,6 @@ SKILLS
           tailored_bullet: "Designed distributed event-driven messaging pipelines handling 2.5M asynchronous events daily with dead-letter queue resilience and idempotent processing guarantees.",
           targeted_skill: "Distributed Message Pipelines",
           enhancement_type: "IMPACT_REFRAME"
-        },
-        {
-          original_bullet: "Packaged services into Docker containers and deployed to managed Kubernetes (EKS) via Helm charts.",
-          tailored_bullet: "Engineered automated containerized deployment pipelines across AWS EKS using Helm and zero-downtime rolling update strategies for 12+ Go services.",
-          targeted_skill: "Kubernetes Orchestration",
-          enhancement_type: "KEYWORD_ALIGNMENT"
         }
       ],
       tailored_resume_markdown: `# Alex Rivera
@@ -147,38 +121,7 @@ alex.rivera@example.com • github.com/alexrivera-dev • linkedin.com/in/alexri
 ---
 
 ### EXECUTIVE SUMMARY
-Performance-driven Backend Systems Engineer with 4.5+ years specializing in low-latency Go microservices, distributed caching, and scalable SQL architecture. Experienced in handling 15M+ daily requests, optimizing p99 database response times by 40%, and managing containerized microservices on Kubernetes.
-
----
-
-### CORE TECHNICAL COMPETENCIES
-- **Languages & Runtimes:** Go (Golang - Goroutines, Channels, sync.Mutex), Python, SQL, Bash
-- **Distributed Systems & Caching:** Redis (Eviction, Token Bucket, Invalidation), RabbitMQ, Event Streams
-- **Databases:** PostgreSQL (Query Tuning, Indexing, EXPLAIN ANALYZE), MySQL
-- **Cloud & DevOps:** Kubernetes (EKS, Helm, Rolling Updates), Docker, AWS, Prometheus, Grafana, OpenTelemetry
-
----
-
-### PROFESSIONAL EXPERIENCE
-
-**Apex Cloud Solutions** — *Senior Backend Software Engineer*  
-*2022 – Present*
-- Architected and scaled 12+ Go microservices handling 15M daily requests with concurrent worker pool architectures.
-- Engineered high-throughput Redis caching and rate-limiting layers, eliminating 55% of redundant database queries and reducing p99 API latency by 38%.
-- Designed distributed event-driven asynchronous processing pipelines with idempotent delivery guarantees and dead-letter queues.
-- Containerized and orchestrated production workloads on AWS EKS using Helm charts, implementing automated health probes and Prometheus alerting.
-
-**HyperScale Labs** — *Backend Developer*  
-*2020 – 2022*
-- Built high-throughput telemetry ingestion APIs in Go and Python processing 5,000+ events/sec from distributed edge devices.
-- Refactored legacy PostgreSQL queries, introducing composite indexing and query plan restructuring to achieve a 40% speedup on analytical queries.
-- Integrated Redis-backed distributed token-bucket rate limiters protecting public-facing API gateways from traffic spikes.
-
----
-
-### PROOF-OF-WORK & TECHNICAL PROJECTS
-- **KubeCron-Lite (Operator SDK):** Custom Kubernetes CRD and reconciliation controller in Go to automate ephemeral batch job lifecycles with exponential backoff.
-- **Go-Raft-KV:** Distributed key-value store implementing core Raft consensus algorithms for leader election and log replication.`,
+Performance-driven Backend Systems Engineer with 4.5+ years specializing in low-latency Go microservices, distributed caching, and scalable SQL architecture. Experienced in handling 15M+ daily requests, optimizing p99 database response times by 40%, and managing containerized microservices on Kubernetes.`,
       proof_of_work_plans: [
         {
           target_gap_skill: "Kubernetes Custom Operators & CRDs",
@@ -199,10 +142,6 @@ Performance-driven Backend Systems Engineer with 4.5+ years specializing in low-
             {
               title: "Kubebuilder Book & Quickstart",
               url: "https://book.kubebuilder.io/quick-start.html"
-            },
-            {
-              title: "Go Controller-Runtime Docs",
-              url: "https://pkg.go.dev/sigs.k8s.io/controller-runtime"
             }
           ]
         }
@@ -212,7 +151,7 @@ Performance-driven Backend Systems Engineer with 4.5+ years specializing in low-
 
   frontend: {
     id: "frontend",
-    name: "React / Frontend Systems Architect",
+    name: "React / Frontend Architect",
     badge: "FRONTEND_ARCHITECT",
     jdTitle: "Staff Frontend Architect (Web Platform & Design Systems)",
     jd: `Role: Staff Frontend Architect - Web Platform
@@ -270,16 +209,6 @@ SKILLS
           actionable_fix: "Highlight streaming SSR (Suspense boundaries) and Server Action patterns."
         },
         {
-          category: "Web Performance & Core Vitals",
-          skill_name: "Core Web Vitals & INP/LCP Optimization",
-          importance: "CRITICAL",
-          status: "MATCHED",
-          jd_requirement_context: "Web Performance mastery (Core Web Vitals, LCP/INP/CLS optimization, bundle chunk splitting).",
-          candidate_evidence: "Improved Lighthouse performance score from 68 to 94 through bundle chunk splitting.",
-          gap_reasoning: "",
-          actionable_fix: "Quantify real-world INP (Interaction to Next Paint) milliseconds and LCP metrics."
-        },
-        {
           category: "Canvas & WebGL Engines",
           skill_name: "WebGL / 2D Canvas Interactive Rendering",
           importance: "CRITICAL",
@@ -288,16 +217,6 @@ SKILLS
           candidate_evidence: "Used SVG and Recharts DOM-based charting; no direct WebGL/Canvas shader experience.",
           gap_reasoning: "Candidate uses standard DOM/SVG charting and lacks hardware-accelerated WebGL / Canvas pipeline experience.",
           actionable_fix: "Build a 7-day 60FPS Canvas/WebGL AST Visualizer proof-of-work project."
-        },
-        {
-          category: "Design Systems & A11y",
-          skill_name: "Design System Architecture & WCAG 2.1 AAA",
-          importance: "PREFERRED",
-          status: "ADJACENT",
-          jd_requirement_context: "Design System architecture with Tailwind CSS, Radix UI primitives, WCAG 2.1 AAA accessibility.",
-          candidate_evidence: "Created reusable component library for 18 engineers with Radix UI and Tailwind CSS.",
-          gap_reasoning: "Strong design system experience; needs explicit demonstration of automated WCAG 2.1 AAA compliance testing.",
-          actionable_fix: "Highlight ARIA live regions, keyboard navigation trap audits, and tokenized design systems."
         }
       ],
       tailored_bullet_patches: [
@@ -306,12 +225,6 @@ SKILLS
           tailored_bullet: "Architected modern chunk-splitting and dynamic import strategies across Next.js 14 App Router, reducing LCP by 1.8s, improving INP to <50ms, and elevating Lighthouse performance from 68 to 96.",
           targeted_skill: "Web Performance & Core Web Vitals",
           enhancement_type: "QUANTIFICATION"
-        },
-        {
-          original_bullet: "Created reusable component library used by 18 engineers across 4 product squads.",
-          tailored_bullet: "Engineered scalable design system with 45+ tokenized components using Radix UI primitives and Tailwind CSS, enforcing WCAG 2.1 AAA accessibility and cutting feature time-to-market by 35%.",
-          targeted_skill: "Design System Architecture",
-          enhancement_type: "IMPACT_REFRAME"
         }
       ],
       tailored_resume_markdown: `# Elena Vance
@@ -321,35 +234,22 @@ elena.vance@example.com • github.com/elenavance • linkedin.com/in/elenavance
 ---
 
 ### PROFESSIONAL PROFILE
-Frontend Architect with 6+ years specializing in Next.js App Router, high-scale Design Systems, and Core Web Vitals optimization. Proven experience leading web platform initiatives, reducing LCP to under 1.2s, and building component ecosystems used across multi-squad engineering organizations.
-
----
-
-### CORE EXPERTISE
-- **Frameworks & Languages:** React 18/19, Next.js (App Router, Server Components, Streaming SSR), TypeScript
-- **Design Systems & A11y:** Tailwind CSS, Radix UI, WCAG 2.1 AAA, Storybook, Design Tokens
-- **Performance:** Core Web Vitals (LCP, INP, CLS), Bundle Splitting, Tree-Shaking, Web Workers
-- **State & Data:** TanStack Query, Zustand, Optimistic UI, WebSocket real-time updates`,
+Frontend Architect with 6+ years specializing in Next.js App Router, high-scale Design Systems, and Core Web Vitals optimization.`,
       proof_of_work_plans: [
         {
           target_gap_skill: "WebGL / 2D Canvas Interactive Rendering",
           project_title: "PixAST: High-Performance Canvas AST Visualizer",
           timeline_days: 7,
-          architecture_summary: "Build an interactive 60fps canvas-based hierarchical graph renderer capable of visualizing 10,000+ AST nodes with spatial hashing, smooth zooming/panning, and WebGL particle shaders for diff animations.",
+          architecture_summary: "Build an interactive 60fps canvas-based hierarchical graph renderer capable of visualizing 10,000+ AST nodes with spatial hashing and WebGL particle shaders.",
           key_deliverables: [
             "Custom 2D HTML5 Canvas rendering loop with requestAnimationFrame and quadtree spatial indexing",
             "Hardware-accelerated WebGL glow/diff shader for node status highlights",
-            "Interactive pinch-to-zoom, node drag-and-drop, and minimap viewport indicator",
-            "Production demo deployed on Vercel with zero external graphing dependencies"
+            "Interactive pinch-to-zoom, node drag-and-drop, and minimap viewport indicator"
           ],
           learning_resources: [
             {
               title: "HTML5 Canvas Deep Dive & Optimizations",
               url: "https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Optimizing_canvas"
-            },
-            {
-              title: "WebGL Fundamentals",
-              url: "https://webglfundamentals.org/"
             }
           ]
         }
@@ -359,7 +259,7 @@ Frontend Architect with 6+ years specializing in Next.js App Router, high-scale 
 
   aiml: {
     id: "aiml",
-    name: "AI/ML & LLM Platform Engineer",
+    name: "AI/ML & LLM Platform",
     badge: "AI_ML_ENGINEER",
     jdTitle: "Staff AI/ML Infrastructure Engineer (LLM Inference & RAG)",
     jd: `Role: Staff AI Platform Engineer - LLM Inference & Serving
@@ -384,15 +284,10 @@ ML Engineer - CognitiveAI Labs (2022 - Present)
 - Fine-tuned open-source Llama-2 7B models on internal datasets using Hugging Face PEFT LoRA.
 - Monitored model accuracy and inference latency using Weights & Biases.
 
-Data Scientist / ML Developer - DataPoint Analytics (2020 - 2022)
-- Built predictive churn and classification models in scikit-learn and XGBoost.
-- Automated feature extraction pipelines using pandas, NumPy, and Apache Airflow.
-
 SKILLS
 - Python, PyTorch, Hugging Face, Scikit-Learn
 - FastAPI, Docker, AWS (SageMaker, S3, EC2)
-- Vector DBs: pgvector, Pinecone
-- Git, MLflow, Weights & Biases`,
+- Vector DBs: pgvector, Pinecone`,
     mockResult: {
       role_title: "Staff AI/ML Infrastructure Engineer",
       overall_match_score: 72,
@@ -400,20 +295,9 @@ SKILLS
         "PyTorch & Transformers": 88,
         "Inference Serving & GPU Optimization": 50,
         "Vector Search & RAG": 82,
-        "Distributed Orchestration & Ray": 48,
         "API & Streaming Infrastructure": 90
       },
       competencies: [
-        {
-          category: "PyTorch & Transformers",
-          skill_name: "Hugging Face & PEFT/LoRA Fine-Tuning",
-          importance: "CRITICAL",
-          status: "MATCHED",
-          jd_requirement_context: "Distributed training & fine-tuning pipelines using Ray, DeepSpeed, or Hugging Face PEFT/LoRA.",
-          candidate_evidence: "Fine-tuned Llama-2 7B models on domain datasets using Hugging Face PEFT and LoRA adapters.",
-          gap_reasoning: "",
-          actionable_fix: "Highlight quantization parameters (QLoRA 4-bit) and dataset tokenization optimizations."
-        },
         {
           category: "Inference Serving & GPU Optimization",
           skill_name: "vLLM, TensorRT-LLM & PagedAttention",
@@ -423,26 +307,6 @@ SKILLS
           candidate_evidence: "Used managed OpenAI APIs and standard SageMaker inference endpoints without low-level vLLM engine orchestration.",
           gap_reasoning: "Lacks hands-on experience configuring high-throughput continuous batching engines (vLLM / TensorRT-LLM) or CUDA kernel tuning.",
           actionable_fix: "Execute the 7-day vLLM-StreamHub proof-of-work project implementing dynamic batching and FlashAttention."
-        },
-        {
-          category: "Vector Search & RAG",
-          skill_name: "Vector Databases & Hybrid HNSW Search",
-          importance: "CRITICAL",
-          status: "MATCHED",
-          jd_requirement_context: "Vector databases at scale (Qdrant, Milvus, pgvector) with hybrid sparse/dense search and HNSW indexing.",
-          candidate_evidence: "Built production semantic search service using pgvector and Pinecone.",
-          gap_reasoning: "",
-          actionable_fix: "Reframe to emphasize HNSW index tuning, reciprocal rank fusion (RRF), and embedding cache layers."
-        },
-        {
-          category: "Distributed Orchestration & Ray",
-          skill_name: "Ray Distributed Clustering & DeepSpeed",
-          importance: "PREFERRED",
-          status: "ADJACENT",
-          jd_requirement_context: "Distributed training & fine-tuning pipelines using Ray, DeepSpeed, or Hugging Face PEFT/LoRA.",
-          candidate_evidence: "Orchestrated data pipelines with Apache Airflow; fine-tuned single-GPU models with PEFT.",
-          gap_reasoning: "Airflow handles workflow scheduling; Ray handles distributed compute actors and memory-shared tensors.",
-          actionable_fix: "Highlight distributed actor patterns and memory-aware batch scheduling."
         }
       ],
       tailored_bullet_patches: [
@@ -451,54 +315,285 @@ SKILLS
           tailored_bullet: "Engineered low-latency hybrid RAG retrieval pipeline with pgvector HNSW indexing and reciprocal rank fusion, achieving sub-45ms vector search across 3M embeddings.",
           targeted_skill: "Vector Database Optimization",
           enhancement_type: "QUANTIFICATION"
-        },
-        {
-          original_bullet: "Developed FastAPI endpoints streaming LLM responses from OpenAI and Anthropic APIs.",
-          tailored_bullet: "Architected asynchronous FastAPI streaming gateway with Server-Sent Events (SSE), token-rate limiting, and structured JSON output validation for 500+ concurrent user sessions.",
-          targeted_skill: "LLM Streaming Infrastructure",
-          enhancement_type: "IMPACT_REFRAME"
         }
       ],
       tailored_resume_markdown: `# Marcus Thorne
 **AI/ML & LLM Platform Infrastructure Engineer**
-marcus.thorne@example.com • github.com/marcusthorne-ai • linkedin.com/in/marcusthorne-ai
-
----
-
-### PROFESSIONAL PROFILE
-AI Systems Engineer with 4+ years designing high-throughput LLM serving pipelines, RAG retrieval architectures, and transformer model fine-tuning. Experienced with PyTorch, PEFT/LoRA, vector indexing (pgvector, Qdrant), and low-latency asynchronous FastAPI microservices.
-
----
-
-### CORE COMPETENCIES
-- **Inference & Serving:** vLLM, FlashAttention, Continuous Batching, FastAPI (SSE Streaming), gRPC
-- **Fine-Tuning & Modeling:** PyTorch, Hugging Face Transformers, PEFT, LoRA, QLoRA
-- **Search & Retrieval:** pgvector, Qdrant, Hybrid Sparse/Dense Search, Reciprocal Rank Fusion
-- **Infrastructure & Tools:** Docker, AWS SageMaker, Weights & Biases, MLflow, Ray Core`,
+marcus.thorne@example.com • github.com/marcusthorne-ai • linkedin.com/in/marcusthorne-ai`,
       proof_of_work_plans: [
         {
           target_gap_skill: "vLLM, TensorRT-LLM & PagedAttention",
           project_title: "vLLM-StreamHub: High-Throughput Token Serving Engine",
           timeline_days: 7,
-          architecture_summary: "Deploy a high-throughput, self-hosted LLM inference gateway using vLLM and PagedAttention with continuous batching, dynamic temperature sampling, and token-level SSE streaming.",
+          architecture_summary: "Deploy a high-throughput, self-hosted LLM inference gateway using vLLM and PagedAttention with continuous batching and token-level SSE streaming.",
           key_deliverables: [
-            "Dockerized vLLM serving container configured with FlashAttention-2 and GPU memory fraction tuning",
+            "Dockerized vLLM serving container configured with FlashAttention-2",
             "FastAPI reverse proxy with request queueing and client-disconnect token cancellation",
-            "Benchmarking suite measuring TTFT (Time-To-First-Token) and tokens/sec under 100 concurrent requests",
-            "Detailed README with performance graphs comparing vanilla HuggingFace vs vLLM throughput"
+            "Benchmarking suite measuring TTFT and tokens/sec under 100 concurrent requests"
           ],
           learning_resources: [
             {
               title: "vLLM Official Documentation",
               url: "https://docs.vllm.ai/en/latest/"
-            },
+            }
+          ]
+        }
+      ]
+    }
+  },
+
+  devops: {
+    id: "devops",
+    name: "DevOps & Cloud Platform",
+    badge: "DEVOPS_ARCHITECT",
+    jdTitle: "Lead Cloud Infrastructure & Platform Engineer (AWS / K8s / IaC)",
+    jd: `Role: Lead Cloud Platform & DevOps Engineer
+Requirements:
+- 6+ years managing multi-region cloud infrastructure on AWS (VPC, Transit Gateway, IAM, EKS).
+- Production Infrastructure as Code (Terraform, Terragrunt, OpenTofu) with automated drift detection.
+- Multi-cluster Kubernetes management, ArgoCD GitOps, Helm charts, and service mesh (Istio/Linkerd).
+- Observability pipelines with Prometheus, Grafana Mimir, Loki, Tempo, and OpenTelemetry.
+- Zero-trust security, HashiCorp Vault secrets management, SOC2/HIPAA compliance automation.
+- CI/CD automation with GitHub Actions, reusable workflows, container scanning (Trivy), and cosign signing.`,
+    resume: `Devon Chen
+Senior DevOps Engineer | devon.chen@example.com | github.com/devonchen-ops
+
+SUMMARY
+DevOps Engineer with 5 years managing AWS infrastructure, Docker container pipelines, and CI/CD automation. Strong Linux administration background and monitoring expertise.
+
+EXPERIENCE
+DevOps Engineer - CloudScale Dynamics (2021 - Present)
+- Wrote Terraform modules to provision AWS EC2, S3, RDS, and Application Load Balancers.
+- Deployed microservices to AWS EKS clusters using Helm charts and Jenkins CI/CD.
+- Configured CloudWatch alarms and basic Prometheus/Grafana dashboards for server metrics.
+- Automated daily database snapshots and cross-region S3 bucket replication.
+
+SysAdmin / Infrastructure Tech - NextGen Hosting (2019 - 2021)
+- Managed Linux Ubuntu/CentOS servers, firewall rules, and SSL certificate renewals.
+- Built bash and Python scripts to automate user provisioning and log rotation.
+
+SKILLS
+- AWS (EC2, S3, RDS, IAM, EKS), Terraform, Docker, Helm, Linux (Ubuntu/CentOS), Bash, Python, Git`,
+    mockResult: {
+      role_title: "Lead Cloud Platform & DevOps Engineer",
+      overall_match_score: 74,
+      category_scores: {
+        "Cloud Infrastructure (AWS)": 88,
+        "IaC & Terraform": 82,
+        "GitOps & Kubernetes": 60,
+        "Observability & Telemetry": 70,
+        "Security & Zero-Trust": 45
+      },
+      competencies: [
+        {
+          category: "GitOps & Kubernetes",
+          skill_name: "ArgoCD GitOps & Istio Service Mesh",
+          importance: "CRITICAL",
+          status: "CRITICAL_GAP",
+          jd_requirement_context: "Multi-cluster Kubernetes management, ArgoCD GitOps, Helm charts, and service mesh (Istio/Linkerd).",
+          candidate_evidence: "Uses standard Helm charts and Jenkins push-based deployments; no declared GitOps or Service Mesh experience.",
+          gap_reasoning: "Missing declarative GitOps controller (ArgoCD/Flux) and mTLS service mesh traffic management.",
+          actionable_fix: "Build the 7-day ArgoGitOps-Mesh lab project to demonstrate progressive canary syncs and mTLS."
+        }
+      ],
+      tailored_bullet_patches: [
+        {
+          original_bullet: "Wrote Terraform modules to provision AWS EC2, S3, RDS, and Application Load Balancers.",
+          tailored_bullet: "Architected modular, reusable Terraform Infrastructure-as-Code modules provisioning multi-tier AWS environments with automated state locking in DynamoDB and CI drift detection.",
+          targeted_skill: "Terraform Infrastructure as Code",
+          enhancement_type: "QUANTIFICATION"
+        }
+      ],
+      tailored_resume_markdown: `# Devon Chen
+**Lead Cloud Platform & DevOps Engineer**
+devon.chen@example.com • github.com/devonchen-ops`,
+      proof_of_work_plans: [
+        {
+          target_gap_skill: "ArgoCD GitOps & Istio Service Mesh",
+          project_title: "GitOps-MeshOps: Declarative Multi-Cluster ArgoCD Engine",
+          timeline_days: 7,
+          architecture_summary: "Set up a declarative GitOps repository using ArgoCD ApplicationSets and Istio service mesh to manage zero-downtime canary deployments with automated rollback.",
+          key_deliverables: [
+            "ArgoCD ApplicationSet manifests managing multi-environment cluster targets",
+            "Istio VirtualService and DestinationRule canary routing configuration",
+            "Automated Prometheus metric analysis for canary rollback"
+          ],
+          learning_resources: [
             {
-              title: "PagedAttention Paper & Architecture",
-              url: "https://arxiv.org/abs/2309.06180"
-            },
+              title: "ArgoCD Official Documentation",
+              url: "https://argo-cd.readthedocs.io/"
+            }
+          ]
+        }
+      ]
+    }
+  },
+
+  fullstack: {
+    id: "fullstack",
+    name: "Full-Stack Product Engineer",
+    badge: "FULLSTACK_ENGINEER",
+    jdTitle: "Senior Full-Stack Product Engineer (TypeScript / Next.js / Node / PostgreSQL)",
+    jd: `Role: Senior Full-Stack Product Engineer
+Requirements:
+- 5+ years of full-stack web development shipping end-to-end user-facing products.
+- Deep expertise in TypeScript across both frontend (React, Next.js App Router, Tailwind CSS) and backend (Node.js, Express, NestJS).
+- Relational database modeling with PostgreSQL, Prisma ORM, Drizzle, and transactional integrity.
+- Real-time features with WebSockets, SSE (Server-Sent Events), or Redis pub/sub.
+- Third-party API integrations (Stripe payments, OAuth 2.0 / Auth0, Resend email).
+- Writing clean, testable code with Vitest, Playwright, and GitHub Actions CI/CD.`,
+    resume: `Maya Lin
+Full-Stack Developer | maya.lin@example.com | github.com/mayalin-dev
+
+SUMMARY
+Full-Stack Software Engineer with 4 years building web applications with React, Node.js, and PostgreSQL. Experienced in API development and responsive modern UIs.
+
+EXPERIENCE
+Full-Stack Developer - NovaTech Solutions (2022 - Present)
+- Built user onboarding dashboards and customer portals using React, TypeScript, and Tailwind CSS.
+- Developed REST APIs in Node.js and Express with PostgreSQL database and Prisma ORM.
+- Integrated Stripe checkout APIs for subscription billing and webhook notifications.
+- Wrote unit and integration tests using Jest.
+
+Frontend Developer - Spark Digital (2020 - 2022)
+- Built responsive customer-facing web pages in React and CSS Modules.
+- Connected frontend components to backend REST endpoints.
+
+SKILLS
+- TypeScript, JavaScript, React, Next.js, Node.js, Express, PostgreSQL, Prisma, Tailwind CSS, Jest, Git`,
+    mockResult: {
+      role_title: "Senior Full-Stack Product Engineer",
+      overall_match_score: 86,
+      category_scores: {
+        "TypeScript & Modern React": 94,
+        "Node.js & Backend APIs": 90,
+        "PostgreSQL & Database Modeling": 88,
+        "Real-Time Architecture": 55,
+        "Testing & CI/CD": 80
+      },
+      competencies: [
+        {
+          category: "Real-Time Architecture",
+          skill_name: "WebSockets & Event Streams (SSE)",
+          importance: "PREFERRED",
+          status: "ADJACENT",
+          jd_requirement_context: "Real-time features with WebSockets, SSE (Server-Sent Events), or Redis pub/sub.",
+          candidate_evidence: "Built webhook event processors for Stripe; no direct bidirectional WebSocket socket.io implementation listed.",
+          gap_reasoning: "Webhook receivers handle inbound HTTP events; WebSockets maintain persistent full-duplex client connections.",
+          actionable_fix: "Highlight real-time event broadcasting and optimistic UI state synchronization."
+        }
+      ],
+      tailored_bullet_patches: [
+        {
+          original_bullet: "Integrated Stripe checkout APIs for subscription billing and webhook notifications.",
+          tailored_bullet: "Architected end-to-end Stripe billing subscription engine handling webhooks with idempotent database updates, processing $250k+ in ARR with 99.9% billing transaction accuracy.",
+          targeted_skill: "Payment Systems & Webhook Idempotency",
+          enhancement_type: "QUANTIFICATION"
+        }
+      ],
+      tailored_resume_markdown: `# Maya Lin
+**Senior Full-Stack Product Engineer**
+maya.lin@example.com • github.com/mayalin-dev`,
+      proof_of_work_plans: [
+        {
+          target_gap_skill: "WebSockets & Event Streams (SSE)",
+          project_title: "SyncRoom: Real-Time Collaborative Document Canvas",
+          timeline_days: 7,
+          architecture_summary: "Build a real-time collaborative workspace with WebSockets, Redis pub/sub message distribution, and CRDT conflict resolution.",
+          key_deliverables: [
+            "WebSocket gateway in Node.js with Redis backplane scaling",
+            "Optimistic state sync with offline recovery queue",
+            "Multi-client presence cursor indicators"
+          ],
+          learning_resources: [
             {
-              title: "FlashAttention-2 Technical Overview",
-              url: "https://github.com/Dao-AILab/flash-attention"
+              title: "WebSocket Protocol Specification",
+              url: "https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API"
+            }
+          ]
+        }
+      ]
+    }
+  },
+
+  systems: {
+    id: "systems",
+    name: "Rust / Systems & Low-Latency",
+    badge: "SYSTEMS_ENGINEER",
+    jdTitle: "Staff Systems Engineer - Low-Latency Engine (Rust / C++)",
+    jd: `Role: Staff Systems Engineer - High-Performance Execution Engine
+Requirements:
+- 6+ years of systems programming in Rust and modern C++ (C++17/20).
+- Deep mastery of low-latency systems (lock-free data structures, memory alignment, cache-line efficiency, SIMD vectorization).
+- Asynchronous runtime architecture with Tokio, epoll/io_uring, and non-blocking network I/O.
+- Memory safety, zero-cost abstractions, custom allocators (jemalloc), and benchmark profiling (perf, flamegraphs).
+- High-throughput protocol serialization (FlatBuffers, Cap'n Proto, Protobuf).
+- Linux kernel tuning (CPU pinning, isolcpus, huge pages, socket bypass).`,
+    resume: `Jonas Richter
+Systems & C++ Software Engineer | jonas.richter@example.com | github.com/jonasrichter-sys
+
+SUMMARY
+Systems Engineer with 5 years building high-performance backend tools and C++ applications. Experienced in memory profiling and multithreading.
+
+EXPERIENCE
+C++ Software Engineer - QuantCore Technologies (2021 - Present)
+- Developed order routing microservices in C++17 with socket communication.
+- Profiling memory allocation using Valgrind and GDB to minimize heap fragmentation.
+- Implemented multithreaded worker pools processing incoming market ticker streams.
+
+Software Developer - BaseLine Systems (2019 - 2021)
+- Built internal file parsing utilities in C++ and Python.
+- Refactored legacy serialization code, improving parsing speeds by 25%.
+
+SKILLS
+- C++, C, Python, Multithreading, Linux, GDB, CMake, Git, Socket Programming`,
+    mockResult: {
+      role_title: "Staff Systems Engineer - Low-Latency Engine",
+      overall_match_score: 70,
+      category_scores: {
+        "C++ Systems Programming": 92,
+        "Rust & Tokio Runtime": 35,
+        "Low-Latency & Lock-Free Data Structures": 60,
+        "Kernel Tuning & Linux I/O": 65
+      },
+      competencies: [
+        {
+          category: "Rust & Tokio Runtime",
+          skill_name: "Rust Memory Safety & Tokio Async Engine",
+          importance: "CRITICAL",
+          status: "CRITICAL_GAP",
+          jd_requirement_context: "6+ years of systems programming in Rust and modern C++ (C++17/20).",
+          candidate_evidence: "Strong C++17 experience with multithreading; no explicit production Rust or Tokio projects mentioned.",
+          gap_reasoning: "Candidate is a skilled C++ systems programmer who needs to demonstrate Rust borrow checker and Tokio async mastery.",
+          actionable_fix: "Complete the 7-day Rust-Tokio-LSM storage engine proof-of-work project."
+        }
+      ],
+      tailored_bullet_patches: [
+        {
+          original_bullet: "Profiling memory allocation using Valgrind and GDB to minimize heap fragmentation.",
+          tailored_bullet: "Engineered zero-allocation hot paths and custom memory arena pools in C++17, reducing p99 order execution latency from 1.2ms to 180μs under heavy load.",
+          targeted_skill: "Low-Latency Memory Optimization",
+          enhancement_type: "QUANTIFICATION"
+        }
+      ],
+      tailored_resume_markdown: `# Jonas Richter
+**Staff Systems & Low-Latency Engineer**
+jonas.richter@example.com • github.com/jonasrichter-sys`,
+      proof_of_work_plans: [
+        {
+          target_gap_skill: "Rust Memory Safety & Tokio Async Engine",
+          project_title: "RustAsyncKV: Lock-Free Tokio Storage Engine",
+          timeline_days: 7,
+          architecture_summary: "Build an ultra-fast embedded key-value storage engine in Rust using Tokio, io_uring, and lock-free crossbeam channels.",
+          key_deliverables: [
+            "Lock-free MemTable using skip-lists in Rust",
+            "Write-Ahead-Log (WAL) with direct I/O zero-copy buffer writes",
+            "Criterion benchmarks comparing throughput against RocksDB"
+          ],
+          learning_resources: [
+            {
+              title: "The Rust Programming Language",
+              url: "https://doc.rust-lang.org/book/"
             }
           ]
         }
