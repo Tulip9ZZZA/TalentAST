@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-main: #FFFFFF;
+    --text-main: #000000;
+  }
+
+  body {
+    @apply bg-noir-white text-noir-black font-mono antialiased overflow-x-hidden min-h-screen selection:bg-noir-black selection:text-noir-white;
+    /* Photocopy / CRT grain noise & subtle scanline overlay */
+    background-image: 
+      radial-gradient(#000000 0.65px, transparent 0.65px),
+      linear-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+    background-size: 14px 14px, 100% 4px;
+  }
+}
+
+/* CRT Scanline Overlay Container */
+.crt-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.12) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.015),
+    rgba(0, 255, 0, 0.008),
+    rgba(0, 0, 255, 0.015)
+  );
+  background-size: 100% 3px, 6px 100%;
+  opacity: 0.55;
+}
+
+/* 1-Bit Binary Dithering Utilities */
+.bg-dither-dense {
+  background-image: radial-gradient(#000000 1.2px, transparent 0);
+  background-size: 3px 3px;
+}
+
+.bg-dither-light {
+  background-image: radial-gradient(#000000 0.85px, transparent 0);
+  background-size: 5px 5px;
+}
+
+.bg-dither-white-dense {
+  background-image: radial-gradient(#ffffff 1.2px, transparent 0);
+  background-size: 3px 3px;
+}
+
+.bg-dither-white-light {
+  background-image: radial-gradient(#ffffff 0.85px, transparent 0);
+  background-size: 5px 5px;
+}
+
+.border-binary {
+  border: 3px solid #000000;
+}
+
+.border-binary-thin {
+  border: 1.5px solid #000000;
+}
+
+.border-binary-dashed {
+  border: 2px dashed #000000;
+}
+
+/* Custom Brutalist Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFFFFF;
+  border-left: 2px solid #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000000;
+  border: 1px solid #FFFFFF;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333333;
+}
+
+/* Print optimizations for resume export */
+@media print {
+  .no-print, .crt-overlay {
+    display: none !important;
+  }
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+}
