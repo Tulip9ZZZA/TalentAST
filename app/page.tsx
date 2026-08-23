@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Header } from "@/components/Header";
 import { InputSection } from "@/components/InputSection";
 import { MatchRadar } from "@/components/MatchRadar";
@@ -8,7 +8,7 @@ import { VisualDiff } from "@/components/VisualDiff";
 import { TailoredResume } from "@/components/TailoredResume";
 import { ProofOfWorkRoadmap } from "@/components/ProofOfWorkRoadmap";
 import { ASTInspector } from "@/components/ASTInspector";
-import { DEMO_PRESETS, MOCK_BACKEND_RESULT } from "@/lib/sampleData";
+import { DEMO_PRESETS } from "@/lib/sampleData";
 import { TalentASTResponse } from "@/lib/schemas";
 import confetti from "canvas-confetti";
 import { 
@@ -35,7 +35,31 @@ export default function TalentASTDashboard() {
   // AI Key & Provider state
   const [apiKey, setApiKey] = useState<string>("");
   const [provider, setProvider] = useState<string>("gemini");
-  const [useMock, setUseMock] = useState<boolean>(true);
+  const [useMock, setUseMock] = useState<boolean>(false); // default to false so real parsing runs!
+
+  // Load stored API key on mount
+  useEffect(() => {
+    try {
+      const savedKey = localStorage.getItem("talentast_api_key");
+      const savedProvider = localStorage.getItem("talentast_provider");
+      if (savedKey) setApiKey(savedKey);
+      if (savedProvider) setProvider(savedProvider);
+    } catch (e) {}
+  }, []);
+
+  const handleSaveApiKey = (key: string) => {
+    setApiKey(key);
+    try {
+      localStorage.setItem("talentast_api_key", key);
+    } catch (e) {}
+  };
+
+  const handleSaveProvider = (p: string) => {
+    setProvider(p);
+    try {
+      localStorage.setItem("talentast_provider", p);
+    } catch (e) {}
+  };
 
   // Switch preset handler
   const handleSelectPreset = (presetId: string) => {
@@ -48,6 +72,17 @@ export default function TalentASTDashboard() {
     }
   };
 
+  // Track edits to JD or Resume
+  const handleJdChange = (val: string) => {
+    setJd(val);
+    setSelectedPreset("custom");
+  };
+
+  const handleResumeChange = (val: string) => {
+    setResume(val);
+    setSelectedPreset("custom");
+  };
+
   // Compile AST & Diff handler
   const handleCompile = async (presetOverrideId?: string) => {
     const activePresetId = presetOverrideId || selectedPreset;
@@ -55,59 +90,38 @@ export default function TalentASTDashboard() {
     setAgentSpeech("PARSING COMPETENCY NODES & COMPUTING AST DELTA...");
 
     try {
-      if (useMock) {
-        // Fast local mock simulation
-        await new Promise((resolve) => setTimeout(resolve, 800));
-        const mockData = DEMO_PRESETS[activePresetId]?.mockResult || MOCK_BACKEND_RESULT;
-        setResult(mockData);
-        setAgentSpeech(`AST COMPILED. ${mockData.overall_match_score}% PARITY DETECTED.`);
-        
-        if (mockData.overall_match_score >= 70) {
-          confetti({
-            particleCount: 40,
-            spread: 60,
-            origin: { y: 0.7 },
-            colors: ["#000000", "#555555", "#aaaaaa", "#ffffff"]
-          });
-        }
-      } else {
-        // Real API call to /api/analyze
-        const response = await fetch("/api/analyze", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            jd,
-            resume,
-            apiKey,
-            provider,
-            useMock: false,
-            presetId: activePresetId,
-          }),
+      const response = await fetch("/api/analyze", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          jd,
+          resume,
+          apiKey,
+          provider,
+          useMock,
+          presetId: activePresetId,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Compiler API error: ${response.statusText}`);
+      }
+
+      const data: TalentASTResponse = await response.json();
+      setResult(data);
+      setAgentSpeech(`AST COMPILED. ${data.overall_match_score}% PARITY DETECTED.`);
+      
+      if (data.overall_match_score >= 70) {
+        confetti({
+          particleCount: 40,
+          spread: 60,
+          origin: { y: 0.7 },
+          colors: ["#000000", "#555555", "#aaaaaa", "#ffffff"]
         });
-
-        if (!response.ok) {
-          throw new Error(`Compiler API error: ${response.statusText}`);
-        }
-
-        const data: TalentASTResponse = await response.json();
-        setResult(data);
-        setAgentSpeech(`LIVE AST COMPILED. ${data.overall_match_score}% PARITY DETECTED.`);
-        
-        if (data.overall_match_score >= 70) {
-          confetti({
-            particleCount: 40,
-            spread: 60,
-            origin: { y: 0.7 },
-            colors: ["#000000", "#555555", "#aaaaaa", "#ffffff"]
-          });
-        }
       }
     } catch (err: any) {
       console.error("Compilation error:", err);
-      // Graceful fallback to mock data on error
-      const fallback = DEMO_PRESETS[activePresetId]?.mockResult || MOCK_BACKEND_RESULT;
-      setResult(fallback);
-      setAgentSpeech("NOTICE: PARSER RETURNED DETERMINISTIC FALLBACK.");
+      setAgentSpeech(`ERROR: ${err.message || "Failed to compile AST"}`);
     } finally {
       setLoading(false);
     }
@@ -126,9 +140,9 @@ export default function TalentASTDashboard() {
           agentState={loading ? "running" : result ? "celebrating" : "idle"}
           speechText={agentSpeech}
           apiKey={apiKey}
-          setApiKey={setApiKey}
+          setApiKey={handleSaveApiKey}
           provider={provider}
-          setProvider={setProvider}
+          setProvider={handleSaveProvider}
           useMock={useMock}
           setUseMock={setUseMock}
         />
@@ -137,9 +151,9 @@ export default function TalentASTDashboard() {
         {!result && (
           <InputSection
             jd={jd}
-            setJd={setJd}
+            setJd={handleJdChange}
             resume={resume}
-            setResume={setResume}
+            setResume={handleResumeChange}
             loading={loading}
             onCompile={handleCompile}
             selectedPreset={selectedPreset}
